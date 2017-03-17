@@ -1,4 +1,4 @@
-package example
+package com.taintech.worldwatch
 
 object App {
   def main(args: Array[String]) {

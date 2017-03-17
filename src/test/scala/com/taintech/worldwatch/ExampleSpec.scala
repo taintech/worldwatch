@@ -1,9 +1,9 @@
-package example
+package com.taintech.worldwatch
 
-import org.scalatest.{Matchers, PropSpec}
 import org.scalatest.prop._
+import org.scalatest.{Matchers, PropSpec}
 
-class CheckSpec
+class ExampleSpec
   extends PropSpec
   with GeneratorDrivenPropertyChecks
   with Matchers {
