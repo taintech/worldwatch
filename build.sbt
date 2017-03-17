@@ -13,4 +13,4 @@ libraryDependencies ++= Seq(
   "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
 )
 
-initialCommands := "import example._"
+initialCommands := "import com.taintech.worldwatch._"
