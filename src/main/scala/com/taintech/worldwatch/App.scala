@@ -4,8 +4,7 @@ import java.util
 
 import com.dukascopy.api.Instrument
 import com.dukascopy.api.system.ClientFactory
-import com.taintech.dukascopy.MA_Play
-import com.taintech.worldwatch.dukascopy.SystemListener
+import com.taintech.worldwatch.dukascopy.{DummyStrategy, SystemListener}
 import com.typesafe.config.{Config, ConfigFactory}
 import com.typesafe.scalalogging.LazyLogging
 
@@ -34,9 +33,10 @@ object App extends LazyLogging {
 
     val instruments: util.Set[Instrument] = new util.HashSet[Instrument]
     instruments.add(Instrument.EURUSD)
+    instruments.add(Instrument.GBPUSD)
     logger.info("Subscribing instruments...")
     client.setSubscribedInstruments(instruments)
     logger.info("Starting strategy")
-    client.startStrategy(new MA_Play)
+    client.startStrategy(new DummyStrategy)
   }
 }
