@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   "com.dukascopy.dds2" % "DDS2-jClient-JForex" % "3.0.18",
   "com.dukascopy.api" % "JForex-API" % "2.13.30",
   "com.typesafe" % "config" % "1.3.1",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
   "org.scalatest" %% "scalatest" % "3.0.1" % "test",
   "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
 )

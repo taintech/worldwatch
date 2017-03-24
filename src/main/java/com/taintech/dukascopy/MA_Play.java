@@ -38,6 +38,8 @@ public class MA_Play implements IStrategy {
     private double[] ma1 = new double[Instrument.values().length];
     private IConsole console;
 
+    private int counter;
+
     public void onStart(IContext context) throws JFException {
         engine = context.getEngine();
         indicators = context.getIndicators();
@@ -53,6 +55,10 @@ public class MA_Play implements IStrategy {
     }
 
     public void onTick(Instrument instrument, ITick tick) throws JFException {
+        counter = +1;
+        if (counter % 1000 == 1) {
+            console.getOut().println("Instrument: " + instrument + ", tick: " + tick);
+        }
         if (ma1[instrument.ordinal()] == -1) {
             ma1[instrument.ordinal()] = indicators.ema(instrument, Period.TEN_SECS, OfferSide.BID, IIndicators.AppliedPrice.MEDIAN_PRICE, 14, 1);
         }

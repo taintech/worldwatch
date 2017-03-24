@@ -54,13 +54,6 @@ public class Main {
 
     private static App$ app = App$.MODULE$;
 
-    //url of the DEMO jnlp
-    private static String jnlpUrl = "http://platform.dukascopy.com/demo/jforex.jnlp";
-    //user name
-    private static String userName = app.conf().getString("dukascopy-app.demo-login");
-    //password
-    private static String password = app.conf().getString("dukascopy-app.demo-pwd");
-
     public static void main(String[] args) throws Exception {
         //get the instance of the IClient interface
         final IClient client = ClientFactory.getDefaultInstance();
@@ -105,7 +98,7 @@ public class Main {
                                     if(client.isConnected()) {
                                         break;
                                     }
-                                    client.connect(jnlpUrl, userName, password);
+                                    client.connect(app.jnlpUrl(), app.userName(), app.password());
 
                                 } catch (Exception e) {
                                     LOGGER.error(e.getMessage(), e);
@@ -120,7 +113,7 @@ public class Main {
 
         LOGGER.info("Connecting...");
         //connect to the server using jnlp, user name and password
-        client.connect(jnlpUrl, userName, password);
+        client.connect(app.jnlpUrl(), app.userName(), app.password());
 
         //wait for it to connect
         int i = 10; //wait max ten seconds
